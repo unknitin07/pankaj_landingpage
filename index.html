@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SpinStorm - Casino Tips & Big Wins</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0A0F24;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #ffffff;
+            position: relative;
+            overflow-x: hidden;
+            padding: 0;
+        }
+
+        .background-animation {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 280px;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -45%) rotate(180deg); }
+        }
+
+        .coin {
+            width: 100%;
+            height: 100%;
+            fill: url(#neonGradient);
+        }
+
+        .contact-ad-button {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .contact-ad-button:active {
+            background: #ffffff;
+            color: #0A0F24;
+            transform: scale(0.95);
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px 40px;
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            width: 110px;
+            height: 110px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #00FFFF 0%, #FF00FF 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.6), 0 0 80px rgba(255, 0, 255, 0.4);
+            animation: pulsate 2s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::after {
+            content: 'LOGO';
+            font-size: 16px;
+            font-weight: bold;
+            color: #0A0F24;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes pulsate {
+            0%, 100% { 
+                box-shadow: 0 0 50px rgba(0, 255, 255, 0.6), 0 0 80px rgba(255, 0, 255, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 70px rgba(0, 255, 255, 0.8), 0 0 110px rgba(255, 0, 255, 0.6);
+                transform: scale(1.05);
+            }
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #00FFFF 0%, #FF00FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: glow 2s ease-in-out infinite;
+            line-height: 1.2;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.4)); }
+            50% { filter: drop-shadow(0 0 25px rgba(255, 0, 255, 0.6)); }
+        }
+
+        .tagline {
+            font-size: 17px;
+            color: #ffffff;
+            margin-bottom: 40px;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            line-height: 1.5;
+            padding: 0 10px;
+            max-width: 90%;
+        }
+
+        .join-button {
+            background: linear-gradient(135deg, #00FFFF 0%, #FF00FF 100%);
+            color: #0A0F24;
+            font-size: 20px;
+            font-weight: 900;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.5),
+                0 0 50px rgba(255, 0, 255, 0.3),
+                0 8px 20px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 350px;
+        }
+
+        .join-button::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #00FFFF, #FF00FF);
+            border-radius: 50px;
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .join-button:active {
+            transform: scale(0.96);
+        }
+
+        .join-button:active::before {
+            opacity: 1;
+        }
+
+        /* Extra small phones */
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 38px;
+            }
+
+            .tagline {
+                font-size: 15px;
+            }
+
+            .join-button {
+                font-size: 17px;
+                padding: 16px 40px;
+            }
+
+            .logo {
+                width: 90px;
+                height: 90px;
+            }
+
+            .contact-ad-button {
+                font-size: 10px;
+                padding: 8px 16px;
+            }
+        }
+
+        /* Small phones */
+        @media (min-width: 361px) and (max-width: 400px) {
+            h1 {
+                font-size: 42px;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Landscape mode */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .container {
+                padding: 60px 20px 30px;
+            }
+
+            .logo {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+                margin-bottom: 15px;
+            }
+
+            .tagline {
+                font-size: 15px;
+                margin-bottom: 30px;
+            }
+
+            .join-button {
+                font-size: 18px;
+                padding: 14px 40px;
+            }
+
+            .background-animation {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Tablets */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 56px;
+            }
+
+            .tagline {
+                font-size: 20px;
+            }
+
+            .logo {
+                width: 130px;
+                height: 130px;
+            }
+
+            .join-button {
+                font-size: 22px;
+                padding: 20px 60px;
+            }
+
+            .contact-ad-button {
+                font-size: 12px;
+                padding: 12px 24px;
+                top: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg class="background-animation" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#00FFFF;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FF00FF;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <circle class="coin" cx="100" cy="100" r="80" stroke="url(#neonGradient)" stroke-width="8" fill="none"/>
+        <circle class="coin" cx="100" cy="100" r="60" stroke="url(#neonGradient)" stroke-width="4" fill="none"/>
+        <text x="100" y="110" text-anchor="middle" font-size="40" font-weight="bold" fill="url(#neonGradient)">$</text>
+    </svg>
+
+    <button class="contact-ad-button" onclick="window.open('https://t.me/youradminusername', '_blank')">
+        Contact for Ads
+    </button>
+
+    <div class="container">
+        <!-- Replace with: <div class="logo"><img src="your-logo.png" alt="SpinStorm Logo"></div> -->
+        <div class="logo"></div>
+        
+        <h1>SpinStorm</h1>
+        
+        <p class="tagline">Exclusive Casino Tips, Big Wins, and Secret Strategies</p>
+        
+        <button class="join-button" onclick="window.open('https://t.me/yourusername', '_blank')">
+            Join Now & Start Winning
+        </button>
+    </div>
+</body>
+</html>
